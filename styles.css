@@ -14,11 +14,11 @@ table {
 }
 
 th, td {
-    border: 5px solid #dbfee6;
+    border: 5px solid #342e2e;
     padding: 8px;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #dbfee6;
     font-weight: bold;
 }
