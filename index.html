@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="bg-parchment text-deepBlue p-6 border-4 border-goldAccent shadow-glow">
-  <h1 class="font-fantasy text-3xl mb-4">Fren Pet Bestiary</h1>
-  <p class="text-lg italic">"Discover the legendary creatures of Fren Pet!"</p>
-</div>
+import Navbar from "../components/Navbar";
+import PetCard from "../components/PetCard";
 
-    <h1>Leaderboard</h1>
-    <table id="leaderboard">
-        <thead>
-            <tr>
-                <th>Team</th>
-                <th>Member</th>
-                <th>Points</th>
-                <th>Goal</th>
-                <th>Change</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data will be inserted here by JavaScript -->
-        </tbody>
-    </table>
-    <script src="script.js"></script>
-</body>
+// Sample pet data (this would be dynamic later)
+const pets = [
+  {
+    id: 1,
+    name: "Flame Drakeling",
+    image: "/assets/pets/pet1.png",
+    type: "Fire",
+    description: "A young dragon wreathed in flames. Strong against Ice, weak to Water.",
+  },
+  {
+    id: 2,
+    name: "Crystal Sprout",
+    image: "/assets/pets/pet2.png",
+    type: "Earth",
+    description: "A living gemstone with regenerative abilities.",
+  },
+  {
+    id: 3,
+    name: "Phantom Wisp",
+    image: "/assets/pets/pet3.png",
+    type: "Ghost",
+    description: "A spectral entity that phases through attacks.",
+  },
+];
+
+export default function Bestiary() {
+  return (
+    <div className="bg-paper min-h-screen text-deepBlue">
+      <Navbar />
+      <main className="max-w-5xl mx-auto p-6">
+        <h1 className="text-4xl font-fantasy text-center border-b-4 border-goldAccent pb-2">
+          Fren Pet Bestiary
+        </h1>
+        <p className="font-body text-lg text-center my-4">
+          Discover the creatures of Fren Pet, their abilities, and battle strengths.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {pets.map((pet) => (
+            <PetCard key={pet.id} pet={pet} />
+          ))}
+        </div>
+      </main>
+    </div>
+  );
+}
+
 </html>
